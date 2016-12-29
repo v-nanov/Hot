@@ -14,6 +14,21 @@
 		E93ECE571E15550200B5B9C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93ECE551E15550200B5B9C1 /* LaunchScreen.storyboard */; };
 		E93ECE621E15550300B5B9C1 /* HotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ECE611E15550300B5B9C1 /* HotTests.swift */; };
 		E93ECE6D1E15550300B5B9C1 /* HotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ECE6C1E15550300B5B9C1 /* HotUITests.swift */; };
+		E93ECE7E1E15587900B5B9C1 /* OrderDishesDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E93ECE7D1E15587900B5B9C1 /* OrderDishesDB.db */; };
+		E93ECE811E155A5500B5B9C1 /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ECE801E155A5500B5B9C1 /* DishModel.swift */; };
+		E93ECE891E1568F200B5B9C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE831E1568F200B5B9C1 /* Alamofire.framework */; };
+		E93ECE8A1E1568F200B5B9C1 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE831E1568F200B5B9C1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E93ECE8B1E1568F200B5B9C1 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE841E1568F200B5B9C1 /* MBProgressHUD.framework */; };
+		E93ECE8C1E1568F200B5B9C1 /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE841E1568F200B5B9C1 /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E93ECE8D1E1568F200B5B9C1 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE851E1568F200B5B9C1 /* RxCocoa.framework */; };
+		E93ECE8E1E1568F200B5B9C1 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE851E1568F200B5B9C1 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E93ECE8F1E1568F200B5B9C1 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE861E1568F200B5B9C1 /* RxSwift.framework */; };
+		E93ECE901E1568F200B5B9C1 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE861E1568F200B5B9C1 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E93ECE911E1568F200B5B9C1 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE871E1568F200B5B9C1 /* SnapKit.framework */; };
+		E93ECE921E1568F200B5B9C1 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE871E1568F200B5B9C1 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E93ECE931E1568F200B5B9C1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE881E1568F200B5B9C1 /* SwiftyJSON.framework */; };
+		E93ECE941E1568F200B5B9C1 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E93ECE881E1568F200B5B9C1 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E93ECE971E15697C00B5B9C1 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ECE961E15697C00B5B9C1 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +48,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E93ECE951E1568F200B5B9C1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E93ECE901E1568F200B5B9C1 /* RxSwift.framework in Embed Frameworks */,
+				E93ECE8E1E1568F200B5B9C1 /* RxCocoa.framework in Embed Frameworks */,
+				E93ECE941E1568F200B5B9C1 /* SwiftyJSON.framework in Embed Frameworks */,
+				E93ECE8C1E1568F200B5B9C1 /* MBProgressHUD.framework in Embed Frameworks */,
+				E93ECE8A1E1568F200B5B9C1 /* Alamofire.framework in Embed Frameworks */,
+				E93ECE921E1568F200B5B9C1 /* SnapKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E93ECE491E15550200B5B9C1 /* Hot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93ECE4C1E15550200B5B9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +81,15 @@
 		E93ECE681E15550300B5B9C1 /* HotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93ECE6C1E15550300B5B9C1 /* HotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotUITests.swift; sourceTree = "<group>"; };
 		E93ECE6E1E15550300B5B9C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E93ECE7D1E15587900B5B9C1 /* OrderDishesDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = OrderDishesDB.db; sourceTree = "<group>"; };
+		E93ECE801E155A5500B5B9C1 /* DishModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishModel.swift; sourceTree = "<group>"; };
+		E93ECE831E1568F200B5B9C1 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		E93ECE841E1568F200B5B9C1 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = ../Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		E93ECE851E1568F200B5B9C1 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		E93ECE861E1568F200B5B9C1 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		E93ECE871E1568F200B5B9C1 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		E93ECE881E1568F200B5B9C1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		E93ECE961E15697C00B5B9C1 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +97,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E93ECE8F1E1568F200B5B9C1 /* RxSwift.framework in Frameworks */,
+				E93ECE8D1E1568F200B5B9C1 /* RxCocoa.framework in Frameworks */,
+				E93ECE931E1568F200B5B9C1 /* SwiftyJSON.framework in Frameworks */,
+				E93ECE8B1E1568F200B5B9C1 /* MBProgressHUD.framework in Frameworks */,
+				E93ECE891E1568F200B5B9C1 /* Alamofire.framework in Frameworks */,
+				E93ECE911E1568F200B5B9C1 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,11 +147,12 @@
 			isa = PBXGroup;
 			children = (
 				E93ECE4C1E15550200B5B9C1 /* AppDelegate.swift */,
-				E93ECE4E1E15550200B5B9C1 /* ViewController.swift */,
-				E93ECE501E15550200B5B9C1 /* Main.storyboard */,
-				E93ECE531E15550200B5B9C1 /* Assets.xcassets */,
-				E93ECE551E15550200B5B9C1 /* LaunchScreen.storyboard */,
-				E93ECE581E15550200B5B9C1 /* Info.plist */,
+				E93ECE7C1E15574D00B5B9C1 /* Main */,
+				E93ECE7F1E15588400B5B9C1 /* Database */,
+				E93ECE7B1E15573F00B5B9C1 /* Resources */,
+				E93ECE7A1E15572200B5B9C1 /* Launch */,
+				E93ECE801E155A5500B5B9C1 /* DishModel.swift */,
+				E93ECE821E15685C00B5B9C1 /* Frameworks */,
 			);
 			path = Hot;
 			sourceTree = "<group>";
@@ -125,6 +175,54 @@
 			path = HotUITests;
 			sourceTree = "<group>";
 		};
+		E93ECE7A1E15572200B5B9C1 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				E93ECE551E15550200B5B9C1 /* LaunchScreen.storyboard */,
+			);
+			name = Launch;
+			sourceTree = "<group>";
+		};
+		E93ECE7B1E15573F00B5B9C1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E93ECE531E15550200B5B9C1 /* Assets.xcassets */,
+				E93ECE581E15550200B5B9C1 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E93ECE7C1E15574D00B5B9C1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E93ECE4E1E15550200B5B9C1 /* ViewController.swift */,
+				E93ECE501E15550200B5B9C1 /* Main.storyboard */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		E93ECE7F1E15588400B5B9C1 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				E93ECE7D1E15587900B5B9C1 /* OrderDishesDB.db */,
+				E93ECE961E15697C00B5B9C1 /* DatabaseManager.swift */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		E93ECE821E15685C00B5B9C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E93ECE831E1568F200B5B9C1 /* Alamofire.framework */,
+				E93ECE841E1568F200B5B9C1 /* MBProgressHUD.framework */,
+				E93ECE851E1568F200B5B9C1 /* RxCocoa.framework */,
+				E93ECE861E1568F200B5B9C1 /* RxSwift.framework */,
+				E93ECE871E1568F200B5B9C1 /* SnapKit.framework */,
+				E93ECE881E1568F200B5B9C1 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +233,7 @@
 				E93ECE451E15550200B5B9C1 /* Sources */,
 				E93ECE461E15550200B5B9C1 /* Frameworks */,
 				E93ECE471E15550200B5B9C1 /* Resources */,
+				E93ECE951E1568F200B5B9C1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +333,7 @@
 			files = (
 				E93ECE571E15550200B5B9C1 /* LaunchScreen.storyboard in Resources */,
 				E93ECE541E15550200B5B9C1 /* Assets.xcassets in Resources */,
+				E93ECE7E1E15587900B5B9C1 /* OrderDishesDB.db in Resources */,
 				E93ECE521E15550200B5B9C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +359,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E93ECE971E15697C00B5B9C1 /* DatabaseManager.swift in Sources */,
 				E93ECE4F1E15550200B5B9C1 /* ViewController.swift in Sources */,
+				E93ECE811E155A5500B5B9C1 /* DishModel.swift in Sources */,
 				E93ECE4D1E15550200B5B9C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,7 +514,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Hot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hot.www.Hot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,7 +531,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Hot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hot.www.Hot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,6 +617,7 @@
 				E93ECE731E15550300B5B9C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E93ECE741E15550300B5B9C1 /* Build configuration list for PBXNativeTarget "HotTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +626,7 @@
 				E93ECE761E15550300B5B9C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E93ECE771E15550300B5B9C1 /* Build configuration list for PBXNativeTarget "HotUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +635,7 @@
 				E93ECE791E15550300B5B9C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
