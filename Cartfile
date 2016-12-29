@@ -1,6 +1,7 @@
 github "Alamofire/Alamofire"
 github "SnapKit/SnapKit"
 github "SwiftyJSON/SwiftyJSON"
+github "stephencelis/SQLite.swift"
 github "ReactiveX/RxSwift"
 github "jdg/MBProgressHUD"
 
