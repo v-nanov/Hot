@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E91A280F1E163ED60016B562 /* DishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91A280E1E163ED60016B562 /* DishViewModel.swift */; };
+		E91A28111E167BF50016B562 /* DishImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E91A28101E167BF50016B562 /* DishImage.xcassets */; };
+		E91A28131E167D110016B562 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91A28121E167D100016B562 /* OrderViewController.swift */; };
+		E91A28151E167D2A0016B562 /* OrderCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91A28141E167D2A0016B562 /* OrderCategoryViewController.swift */; };
+		E91A28171E167D490016B562 /* OrderDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91A28161E167D490016B562 /* OrderDishViewController.swift */; };
+		E91A28191E167D870016B562 /* OrderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91A28181E167D870016B562 /* OrderViewController.storyboard */; };
+		E91A281E1E16921E0016B562 /* DishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91A281C1E16921E0016B562 /* DishCollectionViewCell.swift */; };
+		E91A281F1E16921E0016B562 /* DishCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91A281D1E16921E0016B562 /* DishCollectionViewCell.xib */; };
+		E91A28211E16B5B20016B562 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91A28201E16B5B20016B562 /* TableViewModel.swift */; };
+		E91A28231E16B5DC0016B562 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91A28221E16B5DC0016B562 /* SectionModel.swift */; };
+		E91A28251E16B5ED0016B562 /* RowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91A28241E16B5ED0016B562 /* RowModel.swift */; };
 		E93ECE4D1E15550200B5B9C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ECE4C1E15550200B5B9C1 /* AppDelegate.swift */; };
 		E93ECE4F1E15550200B5B9C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ECE4E1E15550200B5B9C1 /* ViewController.swift */; };
 		E93ECE521E15550200B5B9C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93ECE501E15550200B5B9C1 /* Main.storyboard */; };
@@ -31,6 +42,8 @@
 		E98834E61E15750300F00E2E /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E98834D91E15750300F00E2E /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E98834E71E15750300F00E2E /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98834DA1E15750300F00E2E /* SwiftyJSON.framework */; };
 		E98834E81E15750300F00E2E /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E98834DA1E15750300F00E2E /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9AAD4A21E17362E00DB710B /* DishCollectionReusableHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4A01E17362E00DB710B /* DishCollectionReusableHeadView.swift */; };
+		E9AAD4A31E17362E00DB710B /* DishCollectionReusableHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9AAD4A11E17362E00DB710B /* DishCollectionReusableHeadView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +84,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E91A280E1E163ED60016B562 /* DishViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishViewModel.swift; sourceTree = "<group>"; };
+		E91A28101E167BF50016B562 /* DishImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DishImage.xcassets; sourceTree = "<group>"; };
+		E91A28121E167D100016B562 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		E91A28141E167D2A0016B562 /* OrderCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCategoryViewController.swift; sourceTree = "<group>"; };
+		E91A28161E167D490016B562 /* OrderDishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDishViewController.swift; sourceTree = "<group>"; };
+		E91A28181E167D870016B562 /* OrderViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrderViewController.storyboard; sourceTree = "<group>"; };
+		E91A281C1E16921E0016B562 /* DishCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishCollectionViewCell.swift; sourceTree = "<group>"; };
+		E91A281D1E16921E0016B562 /* DishCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishCollectionViewCell.xib; sourceTree = "<group>"; };
+		E91A28201E16B5B20016B562 /* TableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		E91A28221E16B5DC0016B562 /* SectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		E91A28241E16B5ED0016B562 /* RowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowModel.swift; sourceTree = "<group>"; };
 		E93ECE491E15550200B5B9C1 /* Hot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93ECE4C1E15550200B5B9C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E93ECE4E1E15550200B5B9C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +118,8 @@
 		E98834D81E15750300F00E2E /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		E98834D91E15750300F00E2E /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = ../Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		E98834DA1E15750300F00E2E /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		E9AAD4A01E17362E00DB710B /* DishCollectionReusableHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishCollectionReusableHeadView.swift; sourceTree = "<group>"; };
+		E9AAD4A11E17362E00DB710B /* DishCollectionReusableHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishCollectionReusableHeadView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +154,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E91A281A1E167DAA0016B562 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				E91A28121E167D100016B562 /* OrderViewController.swift */,
+				E91A28141E167D2A0016B562 /* OrderCategoryViewController.swift */,
+				E91A28161E167D490016B562 /* OrderDishViewController.swift */,
+				E91A28181E167D870016B562 /* OrderViewController.storyboard */,
+				E91A281C1E16921E0016B562 /* DishCollectionViewCell.swift */,
+				E91A281D1E16921E0016B562 /* DishCollectionViewCell.xib */,
+				E9AAD4A01E17362E00DB710B /* DishCollectionReusableHeadView.swift */,
+				E9AAD4A11E17362E00DB710B /* DishCollectionReusableHeadView.xib */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
 		E93ECE401E15550200B5B9C1 = {
 			isa = PBXGroup;
 			children = (
@@ -152,12 +193,15 @@
 			isa = PBXGroup;
 			children = (
 				E93ECE4C1E15550200B5B9C1 /* AppDelegate.swift */,
+				E9AAD49F1E17344500DB710B /* TablViewModel */,
 				E93ECE7C1E15574D00B5B9C1 /* Main */,
 				E93ECE7F1E15588400B5B9C1 /* Database */,
 				E93ECE7B1E15573F00B5B9C1 /* Resources */,
 				E93ECE7A1E15572200B5B9C1 /* Launch */,
-				E93ECE801E155A5500B5B9C1 /* DishModel.swift */,
 				E93ECE821E15685C00B5B9C1 /* Frameworks */,
+				E91A280E1E163ED60016B562 /* DishViewModel.swift */,
+				E93ECE801E155A5500B5B9C1 /* DishModel.swift */,
+				E91A281A1E167DAA0016B562 /* Order */,
 			);
 			path = Hot;
 			sourceTree = "<group>";
@@ -193,6 +237,7 @@
 			children = (
 				E93ECE531E15550200B5B9C1 /* Assets.xcassets */,
 				E93ECE581E15550200B5B9C1 /* Info.plist */,
+				E91A28101E167BF50016B562 /* DishImage.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -227,6 +272,16 @@
 				E98834DA1E15750300F00E2E /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9AAD49F1E17344500DB710B /* TablViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E91A28201E16B5B20016B562 /* TableViewModel.swift */,
+				E91A28221E16B5DC0016B562 /* SectionModel.swift */,
+				E91A28241E16B5ED0016B562 /* RowModel.swift */,
+			);
+			name = TablViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +353,7 @@
 				TargetAttributes = {
 					E93ECE481E15550200B5B9C1 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 9SB9CA3JKK;
 						ProvisioningStyle = Automatic;
 					};
 					E93ECE5C1E15550300B5B9C1 = {
@@ -337,8 +393,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E91A28191E167D870016B562 /* OrderViewController.storyboard in Resources */,
 				E93ECE571E15550200B5B9C1 /* LaunchScreen.storyboard in Resources */,
 				E93ECE541E15550200B5B9C1 /* Assets.xcassets in Resources */,
+				E9AAD4A31E17362E00DB710B /* DishCollectionReusableHeadView.xib in Resources */,
+				E91A281F1E16921E0016B562 /* DishCollectionViewCell.xib in Resources */,
+				E91A28111E167BF50016B562 /* DishImage.xcassets in Resources */,
 				E93ECE7E1E15587900B5B9C1 /* OrderDishesDB.db in Resources */,
 				E93ECE521E15550200B5B9C1 /* Main.storyboard in Resources */,
 			);
@@ -365,10 +425,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9AAD4A21E17362E00DB710B /* DishCollectionReusableHeadView.swift in Sources */,
 				E93ECE971E15697C00B5B9C1 /* DatabaseManager.swift in Sources */,
+				E91A28211E16B5B20016B562 /* TableViewModel.swift in Sources */,
+				E91A28251E16B5ED0016B562 /* RowModel.swift in Sources */,
+				E91A281E1E16921E0016B562 /* DishCollectionViewCell.swift in Sources */,
 				E93ECE4F1E15550200B5B9C1 /* ViewController.swift in Sources */,
+				E91A280F1E163ED60016B562 /* DishViewModel.swift in Sources */,
+				E91A28171E167D490016B562 /* OrderDishViewController.swift in Sources */,
+				E91A28151E167D2A0016B562 /* OrderCategoryViewController.swift in Sources */,
 				E93ECE811E155A5500B5B9C1 /* DishModel.swift in Sources */,
+				E91A28231E16B5DC0016B562 /* SectionModel.swift in Sources */,
 				E93ECE4D1E15550200B5B9C1 /* AppDelegate.swift in Sources */,
+				E91A28131E167D110016B562 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +589,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9SB9CA3JKK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -537,6 +608,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9SB9CA3JKK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
