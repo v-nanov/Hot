@@ -121,6 +121,16 @@ extension OrderDishViewController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dishCategory = subCategorys[indexPath.section]
+        let dishes = dishCategory["dishes"] as! [[String: Any]]
+        let element = dishes[indexPath.item] as! [String: String]
+        let controller = PotDetailViewController(withPotModel: element)
+        controller.delegate = self
+        present(controller, animated: false, completion: nil)
+        
+    }
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         guard let orderCategoryController = orderCategoryController else {
             return
@@ -150,6 +160,16 @@ extension OrderDishViewController: UICollectionViewDelegate, UICollectionViewDat
                 orderCategoryController.scrollToIndexPath(indexPath)
             }
         }
-        
+    }
+}
+
+extension OrderDishViewController: PotDetailViewControllerDelegate
+{
+    func potDetailViewController(_ controller: PotDetailViewController, didPressCloseButton button: UIButton) {
+        controller.dismiss(animated: false, completion: nil)
+    }
+    
+    func potDetailViewController(_ controller: PotDetailViewController, didPressConfirmButton button: UIButton) {
+        controller.dismiss(animated: false, completion: nil)
     }
 }

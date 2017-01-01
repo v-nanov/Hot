@@ -44,6 +44,13 @@
 		E98834E81E15750300F00E2E /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E98834DA1E15750300F00E2E /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9AAD4A21E17362E00DB710B /* DishCollectionReusableHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4A01E17362E00DB710B /* DishCollectionReusableHeadView.swift */; };
 		E9AAD4A31E17362E00DB710B /* DishCollectionReusableHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9AAD4A11E17362E00DB710B /* DishCollectionReusableHeadView.xib */; };
+		E9AAD4A71E17ED2E00DB710B /* PotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4A41E17ED2E00DB710B /* PotDetailViewController.swift */; };
+		E9AAD4A81E17ED2E00DB710B /* PotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4A51E17ED2E00DB710B /* PotManager.swift */; };
+		E9AAD4A91E17ED2E00DB710B /* RatioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4A61E17ED2E00DB710B /* RatioView.swift */; };
+		E9AAD4AB1E17ED4B00DB710B /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4AA1E17ED4B00DB710B /* CheckBoxView.swift */; };
+		E9AAD4AD1E17ED7000DB710B /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4AC1E17ED7000DB710B /* CounterView.swift */; };
+		E9AAD4B01E17EE0000DB710B /* UIColor+HexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4AF1E17EE0000DB710B /* UIColor+HexExtension.swift */; };
+		E9AAD4B51E17EFF400DB710B /* UITextView+HHTPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4B41E17EFF400DB710B /* UITextView+HHTPlaceholder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +127,15 @@
 		E98834DA1E15750300F00E2E /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		E9AAD4A01E17362E00DB710B /* DishCollectionReusableHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishCollectionReusableHeadView.swift; sourceTree = "<group>"; };
 		E9AAD4A11E17362E00DB710B /* DishCollectionReusableHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishCollectionReusableHeadView.xib; sourceTree = "<group>"; };
+		E9AAD4A41E17ED2E00DB710B /* PotDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotDetailViewController.swift; sourceTree = "<group>"; };
+		E9AAD4A51E17ED2E00DB710B /* PotManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotManager.swift; sourceTree = "<group>"; };
+		E9AAD4A61E17ED2E00DB710B /* RatioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioView.swift; sourceTree = "<group>"; };
+		E9AAD4AA1E17ED4B00DB710B /* CheckBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		E9AAD4AC1E17ED7000DB710B /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
+		E9AAD4AF1E17EE0000DB710B /* UIColor+HexExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexExtension.swift"; sourceTree = "<group>"; };
+		E9AAD4B21E17EFF300DB710B /* Hot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hot-Bridging-Header.h"; sourceTree = "<group>"; };
+		E9AAD4B31E17EFF400DB710B /* UITextView+HHTPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+HHTPlaceholder.h"; sourceTree = "<group>"; };
+		E9AAD4B41E17EFF400DB710B /* UITextView+HHTPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+HHTPlaceholder.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +208,7 @@
 		E93ECE4B1E15550200B5B9C1 /* Hot */ = {
 			isa = PBXGroup;
 			children = (
+				E9AAD4B61E17F00300DB710B /* OC */,
 				E93ECE4C1E15550200B5B9C1 /* AppDelegate.swift */,
 				E9AAD49F1E17344500DB710B /* TablViewModel */,
 				E93ECE7C1E15574D00B5B9C1 /* Main */,
@@ -202,6 +219,11 @@
 				E91A280E1E163ED60016B562 /* DishViewModel.swift */,
 				E93ECE801E155A5500B5B9C1 /* DishModel.swift */,
 				E91A281A1E167DAA0016B562 /* Order */,
+				E9AAD4A41E17ED2E00DB710B /* PotDetailViewController.swift */,
+				E9AAD4A51E17ED2E00DB710B /* PotManager.swift */,
+				E9AAD4B11E17EE0800DB710B /* Extensions */,
+				E9AAD4AE1E17EDA300DB710B /* Views */,
+				E9AAD4B21E17EFF300DB710B /* Hot-Bridging-Header.h */,
 			);
 			path = Hot;
 			sourceTree = "<group>";
@@ -284,6 +306,33 @@
 			name = TablViewModel;
 			sourceTree = "<group>";
 		};
+		E9AAD4AE1E17EDA300DB710B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E9AAD4AA1E17ED4B00DB710B /* CheckBoxView.swift */,
+				E9AAD4A61E17ED2E00DB710B /* RatioView.swift */,
+				E9AAD4AC1E17ED7000DB710B /* CounterView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E9AAD4B11E17EE0800DB710B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E9AAD4AF1E17EE0000DB710B /* UIColor+HexExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		E9AAD4B61E17F00300DB710B /* OC */ = {
+			isa = PBXGroup;
+			children = (
+				E9AAD4B31E17EFF400DB710B /* UITextView+HHTPlaceholder.h */,
+				E9AAD4B41E17EFF400DB710B /* UITextView+HHTPlaceholder.m */,
+			);
+			name = OC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,6 +403,7 @@
 					E93ECE481E15550200B5B9C1 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 9SB9CA3JKK;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					E93ECE5C1E15550300B5B9C1 = {
@@ -426,18 +476,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9AAD4A21E17362E00DB710B /* DishCollectionReusableHeadView.swift in Sources */,
+				E9AAD4A71E17ED2E00DB710B /* PotDetailViewController.swift in Sources */,
 				E93ECE971E15697C00B5B9C1 /* DatabaseManager.swift in Sources */,
 				E91A28211E16B5B20016B562 /* TableViewModel.swift in Sources */,
+				E9AAD4AB1E17ED4B00DB710B /* CheckBoxView.swift in Sources */,
+				E9AAD4A91E17ED2E00DB710B /* RatioView.swift in Sources */,
 				E91A28251E16B5ED0016B562 /* RowModel.swift in Sources */,
 				E91A281E1E16921E0016B562 /* DishCollectionViewCell.swift in Sources */,
 				E93ECE4F1E15550200B5B9C1 /* ViewController.swift in Sources */,
 				E91A280F1E163ED60016B562 /* DishViewModel.swift in Sources */,
 				E91A28171E167D490016B562 /* OrderDishViewController.swift in Sources */,
 				E91A28151E167D2A0016B562 /* OrderCategoryViewController.swift in Sources */,
+				E9AAD4B01E17EE0000DB710B /* UIColor+HexExtension.swift in Sources */,
 				E93ECE811E155A5500B5B9C1 /* DishModel.swift in Sources */,
+				E9AAD4B51E17EFF400DB710B /* UITextView+HHTPlaceholder.m in Sources */,
 				E91A28231E16B5DC0016B562 /* SectionModel.swift in Sources */,
 				E93ECE4D1E15550200B5B9C1 /* AppDelegate.swift in Sources */,
+				E9AAD4A81E17ED2E00DB710B /* PotManager.swift in Sources */,
 				E91A28131E167D110016B562 /* OrderViewController.swift in Sources */,
+				E9AAD4AD1E17ED7000DB710B /* CounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +646,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9SB9CA3JKK;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -600,6 +658,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hot.www.Hot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hot/Hot-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -608,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9SB9CA3JKK;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -619,6 +680,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hot.www.Hot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hot/Hot-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -125,6 +125,98 @@ class DatabaseManager {
         }
         return results
     }
+    
+    
+    func fetchDishTastes(byDishID dishID: String) -> [Any] {
+        let dishID = fetchTransformPotID(byPotID: dishID)
+        var results = [[String: Any]]()
+        
+        let stmt = try! database
+                        .prepare("select * from potTasteCookingConfig where DISHID=?")
+                        .run(dishID)
+        
+        for row in stmt {
+            var result = [String: Any]()
+            for (index, name) in stmt.columnNames.enumerated() {
+                result[name] = "\(row[index]!)"
+            }
+            if isTasteIDStillUse(result["TASTEID"] as! String, type: "1") {
+                result["subTastes"] = fetchSortedPotSubTastes(byTasteID: result["TASTEID"] as! String)
+                results.append(result)
+            }
+        }
+        return results
+    }
+    
+    /// 此处现根据锅底dishID 映射 privatepan,若存在就用这个id，不存在用dishID
+    func fetchTransformPotID(byPotID potID: String) -> String {
+        let temp = try? database.prepare("SELECT * FROM panprivatepanmap WHERE PAN = ?")
+                                .run(potID)
+        guard let stmt = temp else {
+            return potID
+        }
+        var result: String = potID
+        for row in stmt {
+            for (index, name) in stmt.columnNames.enumerated() {
+                if name == "PRIVATEPAN" {
+                    result = "\(row[index]!)"
+                    break
+                }
+            }
+        }
+        return result
+    }
+    
+    /// 判断口味是否继续使用了,type =="1"锅底，type == "2"备注
+    func isTasteIDStillUse(_ tasteID: String, type: String) -> Bool{
+        let temp = try? database.prepare("select * from tasteCookingConfig where TASTETYPEID=? and TYPE=?")
+            .run([tasteID, type])
+        guard let stmt = temp else {
+            return false
+        }
+        var result = false
+        for _ in stmt {
+            result = true
+            break
+        }
+        return result
+    }
+    
+    func fetchSortedPotSubTastes(byTasteID tasteID: String) -> [[String:String]] {
+        var results = [[String: String]]()
+        let stmt = try! database
+            .prepare("select * from tasteCookingDetailConfig where  TASTETYPEID= ? ORDER BY ORDERNUM")
+            .run(tasteID)
+        for row in stmt {
+            var result = [String: String]()
+            for (index, name) in stmt.columnNames.enumerated() {
+                result[name] = "\(row[index]!)"
+            }
+            results.append(result)
+        }
+        return results
+    }
+    
+    func fetchDishRemarks(byDishID dishID: String) -> [Any] {
+        let dishID = fetchTransformPotID(byPotID: dishID)
+        var results = [[String: Any]]()
+        
+        let stmt = try! database
+            .prepare("select * from potTasteCookingConfig where DISHID=?")
+            .run(dishID)
+        
+        for row in stmt {
+            var result = [String: Any]()
+            for (index, name) in stmt.columnNames.enumerated() {
+                result[name] = "\(row[index]!)"
+            }
+            if isTasteIDStillUse(result["TASTEID"] as! String, type: "2") {
+                result["subTastes"] = fetchSortedPotSubTastes(byTasteID: result["TASTEID"] as! String)
+                results.append(result)
+            }
+        }
+        return results
+    }
 }
 
 

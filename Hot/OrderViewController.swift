@@ -30,10 +30,39 @@ class OrderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeNavigationView()
         makeViewControllers()
         makeViews()
         makeViewLayouts()
         // Do any additional setup after loading the view.
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
+    func makeNavigationView() {
+        makeLeftItem()
+        makeRightItems()
+    }
+    
+    func makeLeftItem() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 44))
+        let attrTitle = NSAttributedString(string: "16号桌", attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18)])
+        button.setAttributedTitle(attrTitle, for: .normal)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    func makeRightItems() {
+        let button1 = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 44))
+        let attrTitle1 = NSAttributedString(string: "中文", attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18)])
+        button1.setAttributedTitle(attrTitle1, for: .normal)
+        
+        let button2 = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 44))
+        let attrTitle2 = NSAttributedString(string: "中文", attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18)])
+        button2.setAttributedTitle(attrTitle2, for: .normal)
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: button1), UIBarButtonItem(customView: button2)]
     }
     
     func makeViewControllers() {
@@ -71,7 +100,8 @@ class OrderViewController: UIViewController {
     
     func makeViewLayouts() {
         categoryView.snp.makeConstraints { (make) in
-            make.top.left.equalTo(view)
+            make.top.equalTo(view).offset(64)
+            make.left.equalTo(view)
             make.width.equalTo(144)
         }
         
@@ -84,13 +114,13 @@ class OrderViewController: UIViewController {
 
         orderPotView.snp.makeConstraints { (make) in
             make.top.left.right.equalTo(contentView)
-            make.size.equalTo(CGSize(width: 880, height: 768))
+            make.size.equalTo(CGSize(width: 880, height: 704))
         }
         
         orderDishView.snp.makeConstraints { (make) in
             make.top.equalTo(orderPotView.snp.bottom)
             make.left.bottom.right.equalTo(contentView)
-            make.size.equalTo(CGSize(width: 880, height: 768))
+            make.size.equalTo(CGSize(width: 880, height: 704))
         }
     }
     
