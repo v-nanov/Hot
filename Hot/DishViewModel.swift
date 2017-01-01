@@ -9,12 +9,12 @@
 import UIKit
 
 class DishViewModel: NSObject {
-    class func fetchAllDish() -> [Any] {
+    class func fetchAllDish() -> [JSONDictionary] {
         let bigCategorys = DatabaseManager.shared.fetchAllDishCategory()
-        let results = bigCategorys.map { (bigCategory) -> [String: Any] in
+        let results = bigCategorys.map { (bigCategory) -> JSONDictionary in
             var bigCategory = bigCategory
             let subCategory = DatabaseManager.shared.fetchSubCategorys(byCategroyID: bigCategory["CATEGORYID"] as! String)
-            let subResults = subCategory.map({ (subCategory) -> [String: Any] in
+            let subResults = subCategory.map({ (subCategory) -> JSONDictionary in
                 var subCategory = subCategory
                 let dishes = DatabaseManager.shared.fetchDishes(bySubCategoryID: subCategory["CLASSID"] as! String)
                 subCategory["dishes"] = dishes
@@ -26,10 +26,10 @@ class DishViewModel: NSObject {
         return results
     }
     
-    class func fetchAllPot() -> [String: Any]{
+    class func fetchAllPot() -> JSONDictionary {
         let categates = DatabaseManager.shared.fetchAllPotCategory()
         var result = [String: Any]()
-        let results = categates.map { (category) -> [String: Any] in
+        let results = categates.map { (category) -> JSONDictionary in
             var category = category
             let pots = DatabaseManager.shared.fetchPot(byCategoryID: category["DISHTYPE"] as! String)
             category["dishes"] = pots
@@ -40,7 +40,7 @@ class DishViewModel: NSObject {
         return result
     }
     
-    static let dishCategorys = DishViewModel.fetchAllDish() as! [[String: Any]]
+    static let dishCategorys = DishViewModel.fetchAllDish()
     static let potCategory = DishViewModel.fetchAllPot()
 }
 

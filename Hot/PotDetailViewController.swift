@@ -21,8 +21,10 @@ class PotDetailViewController: UIViewController {
     
     var delegate: PotDetailViewControllerDelegate?
     
-    var tasteArray: [[String: Any]]
-    var remarks: [String: Any]
+    var tasteArray: [JSONDictionary]
+    
+    // 只取第一个
+    var remarks: [JSONDictionary]
     
     //MARK: - Lazy
     
@@ -71,9 +73,7 @@ class PotDetailViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.backgroundColor = UIColor.white
-        
-        let imagePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first! + "/Image/medium_" + self.potModel["DISHPICURL"]!
-        imageView.image = UIImage(contentsOfFile:imagePath)
+        imageView.image = UIImage(named:"medium_" + self.potModel["DISHPICURL"]!)
         return imageView
     }()
     
@@ -121,8 +121,8 @@ class PotDetailViewController: UIViewController {
     
     init(withPotModel potModel: [String: String]){
         self.potModel = potModel
-        tasteArray = DatabaseManager.shared.fetchDishTastes(byDishID: potModel["DISHID"]!) as! [[String: Any]]
-        remarks = DatabaseManager.shared.fetchDishRemarks(byDishID: potModel["DISHID"]!).first as! [String: Any]
+        tasteArray = DatabaseManager.shared.fetchDishTastes(byDishID: potModel["DISHID"]!)
+        remarks = DatabaseManager.shared.fetchDishRemarks(byDishID: potModel["DISHID"]!)
         super.init(nibName: nil, bundle: nil)
         modalPresentationStyle = .custom
     }
@@ -155,13 +155,13 @@ class PotDetailViewController: UIViewController {
     fileprivate func makeContainerView(){
         
         for item in tasteArray {
-            let ratioView = makeRatioView(withModel: item, title: "haha")
+            let ratioView = makeRatioView(withModel: item)
             containerView.addSubview(ratioView)
             ratioViews.append(ratioView)
         }
         
         if remarks.count > 0 {
-            let checkBoxView = makeCheckBoxView(withModel: remarks)
+            let checkBoxView = makeCheckBoxView(withModel: remarks.first!)
             containerView.addSubview(checkBoxView)
             self.checkBoxView = checkBoxView
         }
@@ -175,20 +175,20 @@ class PotDetailViewController: UIViewController {
         containerView.addSubview(counterView)
     }
     
-    fileprivate func makeRatioView(withModel list:[String: Any], title: String) -> RatioView {
+    fileprivate func makeRatioView(withModel list:JSONDictionary) -> RatioView {
         let ratioView = RatioView(frame: CGRect(x: 0, y: 0, width: 400 - 52, height: 26))
-        let tastes = list["subTastes"] as! [[String: Any]]
+        let tastes = list["subTastes"] as! [JSONDictionary]
         let strings = tastes.map { (taste) -> String in
             return taste["TASTENAME"] as! String
         }
         ratioView.items = strings
-        ratioView.titleLabel.text = title
+        ratioView.titleLabel.text = list["TASTETYPENAME"] as? String
         return ratioView
     }
     
-    fileprivate func makeCheckBoxView(withModel list: [String: Any]) -> CheckBoxView{
+    fileprivate func makeCheckBoxView(withModel list: JSONDictionary) -> CheckBoxView{
         let checkBoxView = CheckBoxView(frame: CGRect(x: 0, y: 0, width: 400 - 52, height: 26))
-        let tastes = list["subTastes"] as! [[String: Any]]
+        let tastes = list["subTastes"] as! [JSONDictionary]
         let strings = tastes.map { (taste) -> String in
             return taste["TASTENAME"] as! String
         }
@@ -316,33 +316,33 @@ class PotDetailViewController: UIViewController {
     }
     
     @objc fileprivate func didPressConfirmButton(_ button: UIButton){
-//        let count = counterView.count
-//        var tasteResult = [[PlotTasteEntity]]()
-//        for ratioView in ratioViews {
-//            tasteResult.append(ratioView.items)
-//        }
-//        
-//        let remarkResult = checkBoxView?.items
-//        
-//        let remarkText = textView.text
-//        
-//        if count > 0{
-//            for _ in 0..<count {
-//                
-//                let copyTastes = tasteResult.map({ (tasteEntitys) -> [PlotTasteEntity] in
-//                    return tasteEntitys.map({ (tasteEntity) -> PlotTasteEntity in
-//                        return tasteEntity.copy() as! PlotTasteEntity
-//                    })
-//                })
-//                
-//                let copyRemarks = remarkResult?.map({ (tasteRemark) -> PlotTasteEntity in
-//                    return tasteRemark.copy() as! PlotTasteEntity
-//                })
-//                
-//                let potStruct = PotStruct(potEntity: potModel, tastes: copyTastes, remarks: copyRemarks, remarkText: remarkText)
-//                let _ = PotManager.shared.addPot(withPotStruct: potStruct)
-//            }
-//        }
+        let count = counterView.count
+        var tasteResult = [JSONDictionary]()
+        for (index, ratioView) in ratioViews.enumerated() {
+            let selectIndexes = ratioView.getSelectIndexes()
+            let tastes = tasteArray[index]["subTastes"] as! [JSONDictionary]
+            for item in selectIndexes {
+                tasteResult.append(tastes[item])
+            }
+        }
+
+        var remarkResult = [JSONDictionary]()
+        if let selectIndexes = checkBoxView?.getSelectIndexes() {
+            let remark = remarks[0]["subTastes"] as! [JSONDictionary]
+            for item in selectIndexes {
+                remarkResult.append(remark[item])
+            }
+        }
+
+        let remarkText = textView.text
+
+        if count > 0{
+            for _ in 0..<count {
+                                
+                let potStruct = PotStruct(potEntity: potModel, tastes: nil, remarks: remarkResult, remarkText: remarkText)
+                let _ = PotManager.shared.addPot(withPotStruct: potStruct)
+            }
+        }
         
         delegate?.potDetailViewController(self, didPressConfirmButton: button)
     }

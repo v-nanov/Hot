@@ -14,6 +14,7 @@ class OrderViewController: UIViewController {
     let orderCategoryViewController = OrderCategoryViewController()
     let orderDishViewController = OrderDishViewController()
     let orderPotViewController = OrderDishViewController()
+    let potCarViewController = PotCarViewController()
     
     var categoryView: UIView!
     fileprivate lazy var button: UIButton = {
@@ -27,6 +28,7 @@ class OrderViewController: UIViewController {
     @IBOutlet weak var contentView: UIScrollView!
     var orderPotView: UIView!
     var orderDishView: UIView!
+    var potCarView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +57,7 @@ class OrderViewController: UIViewController {
     
     func makeRightItems() {
         let button1 = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 44))
-        let attrTitle1 = NSAttributedString(string: "中文", attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18)])
+        let attrTitle1 = NSAttributedString(string: "登录", attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18)])
         button1.setAttributedTitle(attrTitle1, for: .normal)
         
         let button2 = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 44))
@@ -66,20 +68,22 @@ class OrderViewController: UIViewController {
     }
     
     func makeViewControllers() {
+        
         addChildViewController(orderCategoryViewController)
         addChildViewController(orderDishViewController)
-        orderDishViewController.dataList = DishViewModel.fetchAllDish() as! [[String: Any]]
+        orderDishViewController.dataList = DishViewModel.fetchAllDish()
         orderDishViewController.type = .dish
         addChildViewController(orderPotViewController)
         orderPotViewController.dataList = [DishViewModel.fetchAllPot()]
         orderPotViewController.type = .pot
+        
+        addChildViewController(potCarViewController)
         
         orderCategoryViewController.delegate = self
         orderCategoryViewController.orderPotController = orderPotViewController
         orderCategoryViewController.orderDishController = orderDishViewController
         orderPotViewController.orderCategoryController = orderCategoryViewController
         orderDishViewController.orderCategoryController = orderCategoryViewController
-        
     }
     
     func makeViews() {
@@ -89,6 +93,9 @@ class OrderViewController: UIViewController {
         view.addSubview(button)
         
         contentView.isScrollEnabled = false
+        
+        potCarView = potCarViewController.view
+        view.addSubview(potCarView)
         
         orderDishView = orderDishViewController.view
         contentView.addSubview(orderDishView)
@@ -110,6 +117,11 @@ class OrderViewController: UIViewController {
             make.left.bottom.equalTo(view)
             make.width.equalTo(categoryView)
             make.height.equalTo(60)
+        }
+        
+        potCarView.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 440, height: 69))
+            make.bottom.right.equalTo(view)
         }
 
         orderPotView.snp.makeConstraints { (make) in

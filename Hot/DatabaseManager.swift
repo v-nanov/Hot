@@ -17,7 +17,7 @@ class DatabaseManager {
     
     /// CATEGORYID ！= 001（锅底）,008(早餐),011（套餐）,012（私人订制） 都是需要过滤的
     /// CATEGORYID 是3位的表示对外的菜品分类
-    func fetchAllDishCategory() -> [[String: Any]] {
+    func fetchAllDishCategory() -> [JSONDictionary] {
         var results = [[String: String]]()
         
         let stmt = try! database.prepare("SELECT * FROM DISHCATEGORY WHERE CATEGORYID != '001' AND CATEGORYID != '008' AND CATEGORYID != '011' AND CATEGORYID != '012' ")
@@ -36,7 +36,7 @@ class DatabaseManager {
     
     /// 根据大分类ID查询子分类
     /// CLASSID != '001006' (DIY锅底) 需要过滤 CATEGORYTYPE != '0' 也需要过滤
-    func fetchSubCategorys(byCategroyID categoryID: String) -> [[String: Any]] {
+    func fetchSubCategorys(byCategroyID categoryID: String) -> [JSONDictionary] {
         var results = [[String: String]]()
         
         let stmt = try! database.prepare("select * from dishclass where CLASSID != '001006' AND categoryType != '0' AND categoryid = '\(categoryID)'")
@@ -82,7 +82,7 @@ class DatabaseManager {
         return results
     }
     
-    func fetchAllPotCategory() -> [[String: Any]] {
+    func fetchAllPotCategory() -> [JSONDictionary] {
         var results = [[String: String]]()
         let stmt = try! database.prepare("SELECT * FROM potTypeConfig")
         
@@ -127,21 +127,23 @@ class DatabaseManager {
     }
     
     
-    func fetchDishTastes(byDishID dishID: String) -> [Any] {
+    func fetchDishTastes(byDishID dishID: String) -> [JSONDictionary] {
         let dishID = fetchTransformPotID(byPotID: dishID)
-        var results = [[String: Any]]()
+        var results = [JSONDictionary]()
         
         let stmt = try! database
                         .prepare("select * from potTasteCookingConfig where DISHID=?")
                         .run(dishID)
         
         for row in stmt {
-            var result = [String: Any]()
+            var result = JSONDictionary()
             for (index, name) in stmt.columnNames.enumerated() {
                 result[name] = "\(row[index]!)"
             }
-            if isTasteIDStillUse(result["TASTEID"] as! String, type: "1") {
+            let (isUse, title) = isTasteIDStillUse(result["TASTEID"] as! String, type: "1")
+            if isUse {
                 result["subTastes"] = fetchSortedPotSubTastes(byTasteID: result["TASTEID"] as! String)
+                result["TASTETYPENAME"] = title!
                 results.append(result)
             }
         }
@@ -168,15 +170,21 @@ class DatabaseManager {
     }
     
     /// 判断口味是否继续使用了,type =="1"锅底，type == "2"备注
-    func isTasteIDStillUse(_ tasteID: String, type: String) -> Bool{
+    func isTasteIDStillUse(_ tasteID: String, type: String) -> (Bool, String?){
         let temp = try? database.prepare("select * from tasteCookingConfig where TASTETYPEID=? and TYPE=?")
             .run([tasteID, type])
         guard let stmt = temp else {
-            return false
+            return (false, nil)
         }
-        var result = false
-        for _ in stmt {
-            result = true
+        var result: (Bool, String?) = (false, nil)
+        for row in stmt {
+            var title: String?
+            for (index, name) in stmt.columnNames.enumerated() {
+                if name == "TASTETYPENAME" {
+                    title = "\(row[index]!)"
+                }
+            }
+            result = (true, title)
             break
         }
         return result
@@ -197,21 +205,23 @@ class DatabaseManager {
         return results
     }
     
-    func fetchDishRemarks(byDishID dishID: String) -> [Any] {
+    func fetchDishRemarks(byDishID dishID: String) -> [JSONDictionary] {
         let dishID = fetchTransformPotID(byPotID: dishID)
-        var results = [[String: Any]]()
+        var results = [JSONDictionary]()
         
         let stmt = try! database
             .prepare("select * from potTasteCookingConfig where DISHID=?")
             .run(dishID)
         
         for row in stmt {
-            var result = [String: Any]()
+            var result = JSONDictionary()
             for (index, name) in stmt.columnNames.enumerated() {
                 result[name] = "\(row[index]!)"
             }
-            if isTasteIDStillUse(result["TASTEID"] as! String, type: "2") {
+            let (isUse, _) = isTasteIDStillUse(result["TASTEID"] as! String, type: "2")
+            if  isUse {
                 result["subTastes"] = fetchSortedPotSubTastes(byTasteID: result["TASTEID"] as! String)
+                result["TASTETYPENAME"] = "备注"
                 results.append(result)
             }
         }

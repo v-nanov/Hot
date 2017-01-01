@@ -51,6 +51,10 @@
 		E9AAD4AD1E17ED7000DB710B /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4AC1E17ED7000DB710B /* CounterView.swift */; };
 		E9AAD4B01E17EE0000DB710B /* UIColor+HexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4AF1E17EE0000DB710B /* UIColor+HexExtension.swift */; };
 		E9AAD4B51E17EFF400DB710B /* UITextView+HHTPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4B41E17EFF400DB710B /* UITextView+HHTPlaceholder.m */; };
+		E9AAD4BA1E18D8C800DB710B /* CustomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4B91E18D8C800DB710B /* CustomType.swift */; };
+		E9CBF99D1E19203F0024265A /* PotCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBF99C1E19203F0024265A /* PotCarViewController.swift */; };
+		E9CBF99F1E19206A0024265A /* PotCarBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBF99E1E19206A0024265A /* PotCarBar.swift */; };
+		E9CBF9A11E1921120024265A /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBF9A01E1921120024265A /* HUDManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +140,10 @@
 		E9AAD4B21E17EFF300DB710B /* Hot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hot-Bridging-Header.h"; sourceTree = "<group>"; };
 		E9AAD4B31E17EFF400DB710B /* UITextView+HHTPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+HHTPlaceholder.h"; sourceTree = "<group>"; };
 		E9AAD4B41E17EFF400DB710B /* UITextView+HHTPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+HHTPlaceholder.m"; sourceTree = "<group>"; };
+		E9AAD4B91E18D8C800DB710B /* CustomType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomType.swift; sourceTree = "<group>"; };
+		E9CBF99C1E19203F0024265A /* PotCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotCarViewController.swift; sourceTree = "<group>"; };
+		E9CBF99E1E19206A0024265A /* PotCarBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotCarBar.swift; sourceTree = "<group>"; };
+		E9CBF9A01E1921120024265A /* HUDManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,10 +185,7 @@
 				E91A28141E167D2A0016B562 /* OrderCategoryViewController.swift */,
 				E91A28161E167D490016B562 /* OrderDishViewController.swift */,
 				E91A28181E167D870016B562 /* OrderViewController.storyboard */,
-				E91A281C1E16921E0016B562 /* DishCollectionViewCell.swift */,
-				E91A281D1E16921E0016B562 /* DishCollectionViewCell.xib */,
-				E9AAD4A01E17362E00DB710B /* DishCollectionReusableHeadView.swift */,
-				E9AAD4A11E17362E00DB710B /* DishCollectionReusableHeadView.xib */,
+				E9AAD4B71E18D4F500DB710B /* Cells */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -219,11 +224,15 @@
 				E91A280E1E163ED60016B562 /* DishViewModel.swift */,
 				E93ECE801E155A5500B5B9C1 /* DishModel.swift */,
 				E91A281A1E167DAA0016B562 /* Order */,
-				E9AAD4A41E17ED2E00DB710B /* PotDetailViewController.swift */,
+				E9AAD4B81E18D50A00DB710B /* PotDetail */,
 				E9AAD4A51E17ED2E00DB710B /* PotManager.swift */,
+				E9CBF99C1E19203F0024265A /* PotCarViewController.swift */,
+				E9CBF99E1E19206A0024265A /* PotCarBar.swift */,
+				E9CBF9A01E1921120024265A /* HUDManager.swift */,
 				E9AAD4B11E17EE0800DB710B /* Extensions */,
 				E9AAD4AE1E17EDA300DB710B /* Views */,
 				E9AAD4B21E17EFF300DB710B /* Hot-Bridging-Header.h */,
+				E9AAD4B91E18D8C800DB710B /* CustomType.swift */,
 			);
 			path = Hot;
 			sourceTree = "<group>";
@@ -331,6 +340,25 @@
 				E9AAD4B41E17EFF400DB710B /* UITextView+HHTPlaceholder.m */,
 			);
 			name = OC;
+			sourceTree = "<group>";
+		};
+		E9AAD4B71E18D4F500DB710B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E91A281C1E16921E0016B562 /* DishCollectionViewCell.swift */,
+				E91A281D1E16921E0016B562 /* DishCollectionViewCell.xib */,
+				E9AAD4A01E17362E00DB710B /* DishCollectionReusableHeadView.swift */,
+				E9AAD4A11E17362E00DB710B /* DishCollectionReusableHeadView.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		E9AAD4B81E18D50A00DB710B /* PotDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E9AAD4A41E17ED2E00DB710B /* PotDetailViewController.swift */,
+			);
+			name = PotDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,13 +508,17 @@
 				E93ECE971E15697C00B5B9C1 /* DatabaseManager.swift in Sources */,
 				E91A28211E16B5B20016B562 /* TableViewModel.swift in Sources */,
 				E9AAD4AB1E17ED4B00DB710B /* CheckBoxView.swift in Sources */,
+				E9AAD4BA1E18D8C800DB710B /* CustomType.swift in Sources */,
 				E9AAD4A91E17ED2E00DB710B /* RatioView.swift in Sources */,
 				E91A28251E16B5ED0016B562 /* RowModel.swift in Sources */,
 				E91A281E1E16921E0016B562 /* DishCollectionViewCell.swift in Sources */,
 				E93ECE4F1E15550200B5B9C1 /* ViewController.swift in Sources */,
+				E9CBF99F1E19206A0024265A /* PotCarBar.swift in Sources */,
 				E91A280F1E163ED60016B562 /* DishViewModel.swift in Sources */,
+				E9CBF99D1E19203F0024265A /* PotCarViewController.swift in Sources */,
 				E91A28171E167D490016B562 /* OrderDishViewController.swift in Sources */,
 				E91A28151E167D2A0016B562 /* OrderCategoryViewController.swift in Sources */,
+				E9CBF9A11E1921120024265A /* HUDManager.swift in Sources */,
 				E9AAD4B01E17EE0000DB710B /* UIColor+HexExtension.swift in Sources */,
 				E93ECE811E155A5500B5B9C1 /* DishModel.swift in Sources */,
 				E9AAD4B51E17EFF400DB710B /* UITextView+HHTPlaceholder.m in Sources */,
