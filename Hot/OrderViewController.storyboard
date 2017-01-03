@@ -12,7 +12,7 @@
         <scene sceneID="Jwp-0K-AVb">
             <objects>
                 <navigationController id="6dk-o9-5bD" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8qD-fC-u5V">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8qD-fC-u5V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMz-Kb-qP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209.765625" y="75.78125"/>
+            <point key="canvasLocation" x="34" y="-82"/>
         </scene>
     </scenes>
 </document>

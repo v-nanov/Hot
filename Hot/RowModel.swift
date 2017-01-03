@@ -19,3 +19,7 @@ class RowModel: NSObject {
     var isSelected = false
     
 }
+
+struct RxRowModel {
+    var title: String
+}

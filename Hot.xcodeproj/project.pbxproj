@@ -52,6 +52,11 @@
 		E9AAD4B01E17EE0000DB710B /* UIColor+HexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4AF1E17EE0000DB710B /* UIColor+HexExtension.swift */; };
 		E9AAD4B51E17EFF400DB710B /* UITextView+HHTPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4B41E17EFF400DB710B /* UITextView+HHTPlaceholder.m */; };
 		E9AAD4BA1E18D8C800DB710B /* CustomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAD4B91E18D8C800DB710B /* CustomType.swift */; };
+		E9AD2AC41E193CA5008A72AA /* ThousandTastesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AD2AC31E193CA5008A72AA /* ThousandTastesViewController.swift */; };
+		E9AD2AC71E193FB5008A72AA /* ThousandTasteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AD2AC51E193FB5008A72AA /* ThousandTasteCell.swift */; };
+		E9AD2AC81E193FB5008A72AA /* ThousandTasteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9AD2AC61E193FB5008A72AA /* ThousandTasteCell.xib */; };
+		E9AD2ACB1E19FB1D008A72AA /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9AD2ACA1E19FB1D008A72AA /* RxDataSources.framework */; };
+		E9AD2ACC1E19FB1D008A72AA /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9AD2ACA1E19FB1D008A72AA /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9CBF99D1E19203F0024265A /* PotCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBF99C1E19203F0024265A /* PotCarViewController.swift */; };
 		E9CBF99F1E19206A0024265A /* PotCarBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBF99E1E19206A0024265A /* PotCarBar.swift */; };
 		E9CBF9A11E1921120024265A /* HUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBF9A01E1921120024265A /* HUDManager.swift */; };
@@ -84,6 +89,7 @@
 				E98834E21E15750300F00E2E /* RxSwift.framework in Embed Frameworks */,
 				E98834E01E15750300F00E2E /* RxCocoa.framework in Embed Frameworks */,
 				E98834E61E15750300F00E2E /* SQLite.framework in Embed Frameworks */,
+				E9AD2ACC1E19FB1D008A72AA /* RxDataSources.framework in Embed Frameworks */,
 				E98834DE1E15750300F00E2E /* MBProgressHUD.framework in Embed Frameworks */,
 				E98834E81E15750300F00E2E /* SwiftyJSON.framework in Embed Frameworks */,
 				E98834DC1E15750300F00E2E /* Alamofire.framework in Embed Frameworks */,
@@ -141,6 +147,10 @@
 		E9AAD4B31E17EFF400DB710B /* UITextView+HHTPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+HHTPlaceholder.h"; sourceTree = "<group>"; };
 		E9AAD4B41E17EFF400DB710B /* UITextView+HHTPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+HHTPlaceholder.m"; sourceTree = "<group>"; };
 		E9AAD4B91E18D8C800DB710B /* CustomType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomType.swift; sourceTree = "<group>"; };
+		E9AD2AC31E193CA5008A72AA /* ThousandTastesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThousandTastesViewController.swift; sourceTree = "<group>"; };
+		E9AD2AC51E193FB5008A72AA /* ThousandTasteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThousandTasteCell.swift; sourceTree = "<group>"; };
+		E9AD2AC61E193FB5008A72AA /* ThousandTasteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThousandTasteCell.xib; sourceTree = "<group>"; };
+		E9AD2ACA1E19FB1D008A72AA /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		E9CBF99C1E19203F0024265A /* PotCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotCarViewController.swift; sourceTree = "<group>"; };
 		E9CBF99E1E19206A0024265A /* PotCarBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotCarBar.swift; sourceTree = "<group>"; };
 		E9CBF9A01E1921120024265A /* HUDManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDManager.swift; sourceTree = "<group>"; };
@@ -154,6 +164,7 @@
 				E98834E11E15750300F00E2E /* RxSwift.framework in Frameworks */,
 				E98834DF1E15750300F00E2E /* RxCocoa.framework in Frameworks */,
 				E98834E51E15750300F00E2E /* SQLite.framework in Frameworks */,
+				E9AD2ACB1E19FB1D008A72AA /* RxDataSources.framework in Frameworks */,
 				E98834DD1E15750300F00E2E /* MBProgressHUD.framework in Frameworks */,
 				E98834E71E15750300F00E2E /* SwiftyJSON.framework in Frameworks */,
 				E98834DB1E15750300F00E2E /* Alamofire.framework in Frameworks */,
@@ -193,6 +204,7 @@
 		E93ECE401E15550200B5B9C1 = {
 			isa = PBXGroup;
 			children = (
+				E9AD2ACA1E19FB1D008A72AA /* RxDataSources.framework */,
 				E93ECE4B1E15550200B5B9C1 /* Hot */,
 				E93ECE601E15550300B5B9C1 /* HotTests */,
 				E93ECE6B1E15550300B5B9C1 /* HotUITests */,
@@ -215,24 +227,23 @@
 			children = (
 				E9AAD4B61E17F00300DB710B /* OC */,
 				E93ECE4C1E15550200B5B9C1 /* AppDelegate.swift */,
+				E9CBF9A01E1921120024265A /* HUDManager.swift */,
+				E9AAD4B91E18D8C800DB710B /* CustomType.swift */,
 				E9AAD49F1E17344500DB710B /* TablViewModel */,
-				E93ECE7C1E15574D00B5B9C1 /* Main */,
 				E93ECE7F1E15588400B5B9C1 /* Database */,
-				E93ECE7B1E15573F00B5B9C1 /* Resources */,
-				E93ECE7A1E15572200B5B9C1 /* Launch */,
-				E93ECE821E15685C00B5B9C1 /* Frameworks */,
 				E91A280E1E163ED60016B562 /* DishViewModel.swift */,
 				E93ECE801E155A5500B5B9C1 /* DishModel.swift */,
 				E91A281A1E167DAA0016B562 /* Order */,
 				E9AAD4B81E18D50A00DB710B /* PotDetail */,
-				E9AAD4A51E17ED2E00DB710B /* PotManager.swift */,
-				E9CBF99C1E19203F0024265A /* PotCarViewController.swift */,
-				E9CBF99E1E19206A0024265A /* PotCarBar.swift */,
-				E9CBF9A01E1921120024265A /* HUDManager.swift */,
+				E9AD2AC11E193BAB008A72AA /* PotCar */,
+				E9AD2AC21E193BC0008A72AA /* PotManager */,
 				E9AAD4B11E17EE0800DB710B /* Extensions */,
 				E9AAD4AE1E17EDA300DB710B /* Views */,
 				E9AAD4B21E17EFF300DB710B /* Hot-Bridging-Header.h */,
-				E9AAD4B91E18D8C800DB710B /* CustomType.swift */,
+				E93ECE7C1E15574D00B5B9C1 /* Main */,
+				E93ECE821E15685C00B5B9C1 /* Frameworks */,
+				E93ECE7B1E15573F00B5B9C1 /* Resources */,
+				E93ECE7A1E15572200B5B9C1 /* Launch */,
 			);
 			path = Hot;
 			sourceTree = "<group>";
@@ -357,8 +368,28 @@
 			isa = PBXGroup;
 			children = (
 				E9AAD4A41E17ED2E00DB710B /* PotDetailViewController.swift */,
+				E9AD2AC31E193CA5008A72AA /* ThousandTastesViewController.swift */,
+				E9AD2AC51E193FB5008A72AA /* ThousandTasteCell.swift */,
+				E9AD2AC61E193FB5008A72AA /* ThousandTasteCell.xib */,
 			);
 			name = PotDetail;
+			sourceTree = "<group>";
+		};
+		E9AD2AC11E193BAB008A72AA /* PotCar */ = {
+			isa = PBXGroup;
+			children = (
+				E9CBF99C1E19203F0024265A /* PotCarViewController.swift */,
+				E9CBF99E1E19206A0024265A /* PotCarBar.swift */,
+			);
+			name = PotCar;
+			sourceTree = "<group>";
+		};
+		E9AD2AC21E193BC0008A72AA /* PotManager */ = {
+			isa = PBXGroup;
+			children = (
+				E9AAD4A51E17ED2E00DB710B /* PotManager.swift */,
+			);
+			name = PotManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,6 +506,7 @@
 				E93ECE571E15550200B5B9C1 /* LaunchScreen.storyboard in Resources */,
 				E93ECE541E15550200B5B9C1 /* Assets.xcassets in Resources */,
 				E9AAD4A31E17362E00DB710B /* DishCollectionReusableHeadView.xib in Resources */,
+				E9AD2AC81E193FB5008A72AA /* ThousandTasteCell.xib in Resources */,
 				E91A281F1E16921E0016B562 /* DishCollectionViewCell.xib in Resources */,
 				E91A28111E167BF50016B562 /* DishImage.xcassets in Resources */,
 				E93ECE7E1E15587900B5B9C1 /* OrderDishesDB.db in Resources */,
@@ -504,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9AAD4A21E17362E00DB710B /* DishCollectionReusableHeadView.swift in Sources */,
+				E9AD2AC71E193FB5008A72AA /* ThousandTasteCell.swift in Sources */,
 				E9AAD4A71E17ED2E00DB710B /* PotDetailViewController.swift in Sources */,
 				E93ECE971E15697C00B5B9C1 /* DatabaseManager.swift in Sources */,
 				E91A28211E16B5B20016B562 /* TableViewModel.swift in Sources */,
@@ -516,6 +549,7 @@
 				E9CBF99F1E19206A0024265A /* PotCarBar.swift in Sources */,
 				E91A280F1E163ED60016B562 /* DishViewModel.swift in Sources */,
 				E9CBF99D1E19203F0024265A /* PotCarViewController.swift in Sources */,
+				E9AD2AC41E193CA5008A72AA /* ThousandTastesViewController.swift in Sources */,
 				E91A28171E167D490016B562 /* OrderDishViewController.swift in Sources */,
 				E91A28151E167D2A0016B562 /* OrderCategoryViewController.swift in Sources */,
 				E9CBF9A11E1921120024265A /* HUDManager.swift in Sources */,

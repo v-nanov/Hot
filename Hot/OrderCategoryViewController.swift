@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 protocol OrderCategoryViewControllerDelegate: NSObjectProtocol {
     func orderCategoryViewController(_ controller: OrderCategoryViewController, isSelectDish: Bool)
@@ -28,16 +29,18 @@ class OrderCategoryViewController: UIViewController {
         tableView.sectionHeaderHeight = 60
         tableView.sectionFooterHeight = 0.01
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.delegate = self
-        tableView.dataSource = self
         return tableView
     }()
     
     var scrollType = ScrollType.fromUser
+    let disposeBag = DisposeBag()
+    var dataSource : RxTableViewSectionedReloadDataSource<RxSectionModel>!
+    var sections = Variable([RxSectionModel]())
+    var button = UIButton()
     
     weak var delegate: OrderCategoryViewControllerDelegate?
     
-    let dishDataList = DishViewModel.fetchAllDish() as! [[String: Any]]
+    let dishDataList = DishViewModel.fetchAllDish()
     let potCategory = DishViewModel.fetchAllPot()
     weak var orderDishController: OrderDishViewController?
     weak var orderPotController: OrderDishViewController?
@@ -46,31 +49,56 @@ class OrderCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeViewModel()
+        let dataSource = RxTableViewSectionedReloadDataSource<RxSectionModel>()
+        dataSource.configureCell = { ds, tv, ip, item in
+            let cell = tv.dequeueReusableCell(withIdentifier: "cell", for: ip)
+            cell.textLabel?.text = item.title
+            return cell
+        }
+
+        self.dataSource = dataSource
+        
+        
+        let sections = makeRxViewModel()
+        self.sections.value = sections
+        
+        self.sections.asObservable()
+        .bindTo(tableView.rx.items(dataSource: dataSource))
+        .addDisposableTo(disposeBag)
+        
+        tableView.rx
+            .itemSelected
+            .subscribe(onNext: { indexPath in
+              self.didSelectIndexPath(indexPath)
+            })
+            .addDisposableTo(disposeBag)
+        
+        tableView.rx
+            .setDelegate(self)
+            .addDisposableTo(disposeBag)
+        
         makeViews()
         makeViewLayouts()
     }
     
-    fileprivate func makeViewModel() {
-        tableViewModel = TableViewModel()
-        var sections :[SectionModel] = [SectionModel]()
-        let potCategory = makeSectionModel(self.potCategory)
-        let dishCategorys = dishDataList.map { (category) -> SectionModel in
-            return makeSectionModel(category)
+    fileprivate func makeRxViewModel() -> [RxSectionModel] {
+        return dishDataList.map { (category) -> RxSectionModel in
+            let subCategorys = category["subCategorys"] as! [JSONDictionary]
+            var rows = subCategorys.map({ (subCategory) -> RxRowModel in
+                return RxRowModel(title: subCategory["CLASSNAME"] as! String)
+            })
+            if self.button.title(for: .normal) == category["CATEGORYNAME"] as? String {
+                
+            }else if self.button.title(for: .normal) == nil, category["CATEGORYNAME"] as! String == "特色菜"{
+                
+            }else {
+                rows = [RxRowModel]()
+            }
+            return RxSectionModel(headTitle: category["CATEGORYNAME"] as? String, items: rows)
         }
-        sections.append(potCategory)
-        sections.append(contentsOf: dishCategorys)
-        tableViewModel.sections = sections
-        let firstSectionModel = tableViewModel.sections.first as! SectionModel
-        firstSectionModel.isSelected = true
     }
     
-    fileprivate func makeSectionModel(_ category: [String: Any]) -> SectionModel {
-        let sectionModel = SectionModel()
-        sectionModel.rows = category["subCategorys"] as! [Any]
-        sectionModel.headTitle = category["CATEGORYNAME"] as? String
-        return sectionModel
-    }
+
     
     
     fileprivate func makeViews() {
@@ -103,66 +131,8 @@ class OrderCategoryViewController: UIViewController {
             tableView.selectRow(at: targetIndexPath, animated: true, scrollPosition: .top)
         }
     }
-}
-
-extension OrderCategoryViewController: UITableViewDelegate, UITableViewDataSource
-{
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        scrollType = .fromUser
-    }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewModel.sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionModel = tableViewModel.sections[section] as! SectionModel
-        var count = 0
-        if  sectionModel.isSelected {
-            let subCategorys = sectionModel.rows as! [[String: Any]]
-            count = subCategorys.count
-        }
-        return count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sectionModel = tableViewModel.sections[indexPath.section] as! SectionModel
-        let subCategorys = sectionModel.rows as! [[String: Any]]
-        let subCategory = subCategorys[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = subCategory["CLASSNAME"] as? String
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let button = UIButton()
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.backgroundColor = UIColor.gray
-        let sectionModel = tableViewModel.sections[section] as! SectionModel
-        button.setTitle(sectionModel.headTitle, for: .normal)
-        button.tag = section
-        button.addTarget(self, action: #selector(didPressSectionButton(_:)), for: .touchUpInside)
-        return button
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        scrollType = .fromUser
-        didSelectIndexPath(indexPath)
-    }
-    
-    @objc private func didPressSectionButton(_ button: UIButton){
-        scrollType = .fromUser
-        for (index, item) in tableViewModel.sections.enumerated() {
-            let sectionModel = item as! SectionModel
-            sectionModel.isSelected = button.tag == index
-        }
-        tableView.reloadData()
-        tableView.selectRow(at: IndexPath(row: 0, section: button.tag), animated: true, scrollPosition: .top)
-        didSelectIndexPath(IndexPath(row: 0, section: button.tag))
-    }
-    
-    private func didSelectIndexPath(_ indexPath: IndexPath)
+    fileprivate func didSelectIndexPath(_ indexPath: IndexPath)
     {
         if indexPath.section == 0 {
             delegate?.orderCategoryViewController(self, isSelectDish: false)
@@ -173,3 +143,108 @@ extension OrderCategoryViewController: UITableViewDelegate, UITableViewDataSourc
         }
     }
 }
+
+extension OrderCategoryViewController: UITableViewDelegate
+{
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let button = UIButton()
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.backgroundColor = UIColor.gray
+        let sectionModel = dataSource.sectionModels[section]
+        button.setTitle(sectionModel.headTitle, for: .normal)
+        button.tag = section
+        button.addTarget(self, action: #selector(didPressSectionButton(_:)), for: .touchUpInside)
+        return button
+    }
+
+    @objc private func didPressSectionButton(_ button: UIButton){
+        self.button = button
+        
+        self.sections.value = makeRxViewModel()
+        scrollType = .fromUser
+
+        tableView.reloadData()
+        tableView.selectRow(at: IndexPath(row: 0, section: button.tag), animated: true, scrollPosition: .top)
+        didSelectIndexPath(IndexPath(row: 0, section: button.tag))
+    }
+}
+
+//fileprivate func makeViewModel() {
+//    tableViewModel = TableViewModel()
+//    var sections :[SectionModel] = [SectionModel]()
+//    let potCategory = makeSectionModel(self.potCategory)
+//    let dishCategorys = dishDataList.map { (category) -> SectionModel in
+//        return makeSectionModel(category)
+//    }
+//    sections.append(potCategory)
+//    sections.append(contentsOf: dishCategorys)
+//    tableViewModel.sections = sections
+//    let firstSectionModel = tableViewModel.sections.first as! SectionModel
+//    firstSectionModel.isSelected = true
+//}
+//
+//fileprivate func makeSectionModel(_ category: [String: Any]) -> SectionModel {
+//    let sectionModel = SectionModel()
+//    sectionModel.rows = category["subCategorys"] as! [Any]
+//    sectionModel.headTitle = category["CATEGORYNAME"] as? String
+//    return sectionModel
+//}
+
+//extension OrderCategoryViewController: UITableViewDelegate, UITableViewDataSource
+//{
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        scrollType = .fromUser
+//    }
+//    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return tableViewModel.sections.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        let sectionModel = tableViewModel.sections[section] as! SectionModel
+//        var count = 0
+//        if  sectionModel.isSelected {
+//            let subCategorys = sectionModel.rows as! [[String: Any]]
+//            count = subCategorys.count
+//        }
+//        return count
+//    }
+//    
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let sectionModel = tableViewModel.sections[indexPath.section] as! SectionModel
+//        let subCategorys = sectionModel.rows as! [[String: Any]]
+//        let subCategory = subCategorys[indexPath.row]
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        cell.textLabel?.text = subCategory["CLASSNAME"] as? String
+//        return cell
+//    }
+//    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let button = UIButton()
+//        button.setTitleColor(UIColor.black, for: .normal)
+//        button.backgroundColor = UIColor.gray
+//        let sectionModel = tableViewModel.sections[section] as! SectionModel
+//        button.setTitle(sectionModel.headTitle, for: .normal)
+//        button.tag = section
+//        button.addTarget(self, action: #selector(didPressSectionButton(_:)), for: .touchUpInside)
+//        return button
+//    }
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        scrollType = .fromUser
+//        didSelectIndexPath(indexPath)
+//    }
+//    
+//    @objc private func didPressSectionButton(_ button: UIButton){
+//        scrollType = .fromUser
+//        for (index, item) in tableViewModel.sections.enumerated() {
+//            let sectionModel = item as! SectionModel
+//            sectionModel.isSelected = button.tag == index
+//        }
+//        tableView.reloadData()
+//        tableView.selectRow(at: IndexPath(row: 0, section: button.tag), animated: true, scrollPosition: .top)
+//        didSelectIndexPath(IndexPath(row: 0, section: button.tag))
+//    }
+//
+//}

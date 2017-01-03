@@ -3,5 +3,6 @@ github "SnapKit/SnapKit"
 github "SwiftyJSON/SwiftyJSON"
 github "stephencelis/SQLite.swift"
 github "ReactiveX/RxSwift"
+github "RxSwiftCommunity/RxDataSources" ~> 1.0
 github "jdg/MBProgressHUD"
 

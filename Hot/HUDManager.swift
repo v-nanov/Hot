@@ -25,11 +25,13 @@ class HUDManager {
         }
     }
     
-    class func hide() {
-        if  let window = UIApplication.shared.keyWindow {
-            if let huds = MBProgressHUD.allHUDs(for: window) as? [MBProgressHUD]{
-                for hud in huds {
-                    hud.hide(true)
+    class func hideAllIndicators() {
+        if let window = UIApplication.shared.keyWindow {
+            for view in window.subviews {
+                if let hud = view as? MBProgressHUD {
+                    if hud.mode == .indeterminate {
+                        hud.hide(animated: false)
+                    }
                 }
             }
         }
@@ -66,11 +68,9 @@ class HUDManager {
             window.addSubview(hud)
             hud.show(animated: true)
             hud.hide(animated: true, afterDelay: 1.5)
-
         }
     }
 }
-
 
 enum HUDType: Int {
     case succeed = 0
